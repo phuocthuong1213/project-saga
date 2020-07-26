@@ -24,6 +24,7 @@ class CommonModal extends Component {
         )
     }
 }
+
 CommonModal.propTypes = {
     classes: PropTypes.object,
     open: PropTypes.bool,
