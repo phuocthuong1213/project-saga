@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Index from './container/App';
 import * as serviceWorker from './serviceWorker';
-import './generator';
 
 ReactDOM.render(<Index />, document.getElementById('root'));
 
