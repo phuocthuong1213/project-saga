@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as modalActions from './../../action/modal';
+import * as taskActions from './../../action/task';
 import { bindActionCreators, compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import renderTextField from '../../components/FormHelper/TextField';
@@ -13,7 +14,10 @@ import validate from './validate';
 class TaskForm extends Component {
 
     handleSubmitForm = data => {
-        console.log(data);
+        const { taskActionsCreator } = this.props;
+        const { addTask } = taskActionsCreator;
+        const { title, description } = data;
+        addTask(title, description);
     }
 
     render() {
@@ -76,6 +80,9 @@ TaskForm.propTypes = {
     modalActionCreator: PropTypes.shape({
         hideModal: PropTypes.func
     }),
+    taskActionsCreator: PropTypes.shape({
+        addTask: PropTypes.func
+    }),
     handleSubmitForm: PropTypes.func
 };
 
@@ -83,7 +90,8 @@ TaskForm.propTypes = {
 const mapStateToProps = null;
 
 const mapDispatchToProps = dispatch => ({
-    modalActionCreator: bindActionCreators(modalActions, dispatch)
+    modalActionCreator: bindActionCreators(modalActions, dispatch),
+    taskActionsCreator: bindActionCreators(taskActions, dispatch)
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

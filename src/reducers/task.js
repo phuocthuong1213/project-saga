@@ -13,6 +13,8 @@ const reducer = (state = initialState, action) => {
                 listTask: []
             };
         }
+
+
         case taskConstants.FETCH_TASK_SUCCESS: {
             const { data } = action.payload;
             return {
@@ -27,12 +29,37 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 listTask: []
             }
+
+        //Tìm kiếm
         case taskConstants.FILTER_TASK_SUCCESS:
             const { data } = action.payload;
             return {
                 ...state,
                 listTask: data
             }
+
+        //Thêm
+        case taskConstants.ADD_TASK:
+            return {
+                ...state,
+            }
+
+        //concat nối 2 mảng vào với nhau. Tham số nhận vào là 1 Array
+        case taskConstants.ADD_TASK_SUCCESS: {
+            const { data } = action.payload;
+            return {
+                ...state,
+                listTask: [data].concat(state.listTask)
+            };
+        }
+
+        case taskConstants.ADD_TASK_FAILED: {
+            const { error } = action.payload;
+            toastError(error);
+            return {
+                ...state,
+            };
+        }
 
         default:
             return state;

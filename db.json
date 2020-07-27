@@ -1,22 +1,22 @@
 {
-    "tasks": [
-        {
-            "title": "Learning reactjs",
-            "description": "Redux form",
-            "status": 2,
-            "id": 5
-        },
-        {
-            "title": "Learning SASS",
-            "description": "SASS",
-            "status": 1,
-            "id": 6
-        },
-        {
-            "title": "Learning Java",
-            "description": "OOP",
-            "status": 0,
-            "id": 7
-        }
-    ]
+  "tasks": [
+    {
+      "title": "Learning reactjs",
+      "description": "Redux form",
+      "status": 2,
+      "id": 5
+    },
+    {
+      "title": "Learning SASS",
+      "description": "SASS",
+      "status": 1,
+      "id": 6
+    },
+    {
+      "title": "Learning Java",
+      "description": "OOP",
+      "status": 0,
+      "id": 7
+    }
+  ]
 }
