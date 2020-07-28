@@ -4,10 +4,10 @@ import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import TaskItem from '../TaskItem/index.js';
-
+import PropTypes from 'prop-types';
 class TaskList extends Component {
   render() {
-    const { classes, tasks, status } = this.props;
+    const { classes, tasks, status, onClickEdit, onClickDelete } = this.props;
     return (
       <Grid item md={4} xs={12}>
         <Box mt={2} mb={2}>
@@ -21,6 +21,8 @@ class TaskList extends Component {
                 task={task}
                 status={status}
                 key={task.id}
+                onClickEdit={() => onClickEdit(task)}
+                onClickDelete={() => onClickDelete(task)}
               />
             );
           })}
@@ -29,5 +31,11 @@ class TaskList extends Component {
     );
   }
 }
-
+TaskList.propTypes = {
+  classes: PropTypes.object,
+  task: PropTypes.array,
+  status: PropTypes.object,
+  onClickEdit: PropTypes.func,
+  onClickDelete: PropTypes.func
+}
 export default withStyles(styles)(TaskList);

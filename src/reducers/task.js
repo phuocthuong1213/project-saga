@@ -2,7 +2,8 @@ import * as taskConstants from '../constants/task';
 import { toastError } from '../helpers/toastHelper';
 
 const initialState = {
-    listTask: []
+    listTask: [],
+    taskEditing: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,7 +42,7 @@ const reducer = (state = initialState, action) => {
         //Thêm
         case taskConstants.ADD_TASK:
             return {
-                ...state,
+                ...state
             }
 
         //concat nối 2 mảng vào với nhau. Tham số nhận vào là 1 Array
@@ -56,6 +57,44 @@ const reducer = (state = initialState, action) => {
         case taskConstants.ADD_TASK_FAILED: {
             const { error } = action.payload;
             toastError(error);
+            return {
+                ...state,
+            };
+        }
+
+        case taskConstants.SET_TASK_EDITING: {
+            const { task } = action.payload;
+            return {
+                ...state,
+                taskEditing: task
+            };
+        }
+
+        //Update
+
+        case taskConstants.UPDATE_TASK: {
+            return {
+                ...state
+            };
+        }
+
+        //[ 1 , 3 , 5 , 7 , 10]
+        //[ 1 , 3 => 6, 7 , 10]
+        case taskConstants.UPDATE_TASK_SUCCESS: {
+            const { data } = action.payload;
+            const { listTask } = state;
+            const index = listTask.findIndex(item => item.id === data.id);
+            if (index !== -1) {
+                const newList = [
+                    ...listTask.slice(0, index),
+                    data,
+                    ...listTask.slice(index + 1)
+                ];
+                return {
+                    ...state,
+                    listTask: newList
+                };
+            }
             return {
                 ...state,
             };

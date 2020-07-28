@@ -9,13 +9,13 @@
     {
       "title": "Learning SASS",
       "description": "SASS",
-      "status": 1,
+      "status": 0,
       "id": 6
     },
     {
       "title": "Learning Java",
       "description": "OOP",
-      "status": 0,
+      "status": 1,
       "id": 7
     }
   ]
