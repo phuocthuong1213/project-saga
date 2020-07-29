@@ -1,8 +1,8 @@
 import { fork, take, call, put, delay, takeLatest, takeEvery, select } from 'redux-saga/effects'
 import * as taskTypes from '../constants/task';
-import { getListTask, addTask, updateTask } from '../apis/task';
+import { getListTask, addTask, updateTask, deleteTask } from '../apis/task';
 import { STATUS_CODE, STATUSES } from '../constants/index';
-import { fetchListTaskSuccess, fetchListTaskFailed, addTaskSuccess, addTaskFailed, fetchListTask, updateTaskSuccess, updateTaskFailed } from '../action/task';
+import { fetchListTaskSuccess, fetchListTaskFailed, addTaskSuccess, addTaskFailed, fetchListTask, updateTaskSuccess, updateTaskFailed, deleteTaskSuccess, deleteTaskFailed } from '../action/task';
 import { showLoading, hideLoading } from '../action/ui';
 import { hideModal } from '../action/modal';
 
@@ -21,7 +21,7 @@ import { hideModal } from '../action/modal';
 function* watchFetchListTaskAction() {
     while (true) {
         const action = yield take(taskTypes.FETCH_TASK); // Khi FETCH_TASK được dispatch => thì code mới dc chạy
-        yield put(showLoading());
+        //yield put(showLoading());
         const { params } = action.payload;
         const resp = yield call(getListTask, params);
         const { status, data } = resp;
@@ -95,10 +95,26 @@ function* updateTaskSaga({ payload }) {
     yield put(hideLoading());
 }
 
+function* deleteTaskSaga({ payload }) {
+    const { id } = payload;
+    yield put(showLoading());
+    const resp = yield call(deleteTask, id);
+    const { data, status: statusCode } = resp;
+    if (statusCode === STATUS_CODE.SUCCESS) {
+        yield put(deleteTaskSuccess(id));
+        yield put(hideModal());
+    } else {
+        yield put(deleteTaskFailed(data));
+    }
+    yield delay(1000);
+    yield put(hideLoading());
+}
+
 function* rootSaga() {
     yield fork(watchFetchListTaskAction);
     yield takeLatest(taskTypes.FILTER_TASK, filterTaskSaga);
     yield takeEvery(taskTypes.ADD_TASK, addTaskSaga);
     yield takeLatest(taskTypes.UPDATE_TASK, updateTaskSaga);
+    yield takeLatest(taskTypes.DELETE_TASK, deleteTaskSaga);
 }
 export default rootSaga;

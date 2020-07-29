@@ -1,4 +1,6 @@
+
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const toastError = error => {
     let message = null;
@@ -7,5 +9,11 @@ export const toastError = error => {
     }
     if (message !== null && typeof message !== 'undefined' && message !== '') {
         toast.error(message);
+    }
+};
+
+export const toastSuccess = message => {
+    if (message !== null && typeof message !== 'undefined' && message !== '') {
+        toast.success(message);
     }
 };
