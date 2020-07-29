@@ -10,33 +10,16 @@
       "id": 5
     },
     {
-      "title": "Learning SASS",
-      "status": 1,
-      "id": 6
-    },
-    {
       "title": "Learning Java",
       "description": "OOP",
       "status": 0,
       "id": 7
     },
     {
-      "title": "Learning english",
-      "description": "123",
-      "status": 0,
-      "id": 8
-    },
-    {
       "title": "Play game",
       "description": "With my friend",
-      "status": 0,
+      "status": 1,
       "id": 9
-    },
-    {
-      "title": "Play game",
-      "description": "FIFA",
-      "status": 2,
-      "id": 11
     }
   ]
 }
