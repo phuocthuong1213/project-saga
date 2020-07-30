@@ -4,7 +4,7 @@ import styles from './styles'
 import PropTypes from 'prop-types';
 import CloseIcon from '@material-ui/icons/Clear';
 import { connect } from 'react-redux';
-import * as modalActions from './../../action/modal';
+import * as modalActions from './../../actions/modal';
 import { bindActionCreators, compose } from 'redux';
 import { Modal } from '@material-ui/core';
 class CommonModal extends Component {

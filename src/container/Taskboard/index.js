@@ -11,8 +11,8 @@ import { STATUSES } from './../../constants/index';
 import TaskForm from '../TaskForm/index.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as taskActions from './../../action/task';
-import * as modalActions from './../../action/modal';
+import * as taskActions from '../../actions/task';
+import * as modalActions from '../../actions/modal';
 class TaskBoard extends Component {
     componentDidMount() {
         const { taskActionCreators } = this.props;

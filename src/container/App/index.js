@@ -10,8 +10,9 @@ import { ToastContainer } from 'react-toastify';
 import GlobalLoading from '../../components/GlobalLoading/index.js';
 import Modal from './../../components/Modal';
 import { ADMIN_ROUTES } from '../../constants';
-import {BrowserRouter,Switch} from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import AdminLayoutRoute from '../commons/Layout/AdminLayoutRoute/index.js';
+import CssBaseline from '@material-ui/core/CssBaseline';
 const store = configureStore();
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
 
     xhtml = ADMIN_ROUTES.map(route => {
       return (
-        <AdminLayoutRoute key={route.path} component={route.component} exact={route.exact} path={route.path} name={route.name}/>
+        <AdminLayoutRoute key={route.path} component={route.component} exact={route.exact} path={route.path} name={route.name} />
         //<AdminLayoutRoute key={route.path} route={route} />
       );
     });
@@ -35,6 +36,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <ToastContainer />
             <GlobalLoading />
             <Modal />

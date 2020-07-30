@@ -19,5 +19,4 @@ const theme = createMuiTheme({
     border: '#CCCCCC',
   },
 });
-
 export default theme;

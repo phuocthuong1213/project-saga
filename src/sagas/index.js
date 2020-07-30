@@ -2,9 +2,9 @@ import { fork, take, call, put, delay, takeLatest, takeEvery, select } from 'red
 import * as taskTypes from '../constants/task';
 import { getListTask, addTask, updateTask, deleteTask } from '../apis/task';
 import { STATUS_CODE, STATUSES } from '../constants/index';
-import { fetchListTaskSuccess, fetchListTaskFailed, addTaskSuccess, addTaskFailed, fetchListTask, updateTaskSuccess, updateTaskFailed, deleteTaskSuccess, deleteTaskFailed } from '../action/task';
-import { showLoading, hideLoading } from '../action/ui';
-import { hideModal } from '../action/modal';
+import { fetchListTaskSuccess, fetchListTaskFailed, addTaskSuccess, addTaskFailed, fetchListTask, updateTaskSuccess, updateTaskFailed, deleteTaskSuccess, deleteTaskFailed } from '../actions/task';
+import { showLoading, hideLoading } from '../actions/ui';
+import { hideModal } from '../actions/modal';
 
 //takeEvery,select,filterTaskSuccess
 /**

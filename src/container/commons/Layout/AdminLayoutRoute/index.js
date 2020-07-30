@@ -9,8 +9,8 @@ class AdminLayoutRoute extends Component {
             <Route
                 {...remainProps} render={routeProps => {
                     return (
-                        <DashBoard>
-                            <YourComponent {...routeProps} />
+                        <DashBoard {...remainProps}>
+                            <YourComponent {...routeProps}/>
                         </DashBoard>
                     );
                 }}
