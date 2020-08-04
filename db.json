@@ -12,13 +12,13 @@
     {
       "title": "Learning Java",
       "description": "OOP",
-      "status": 0,
+      "status": 1,
       "id": 7
     },
     {
       "title": "Play game",
       "description": "With my friend",
-      "status": 1,
+      "status": 0,
       "id": 9
     }
   ]

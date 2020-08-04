@@ -53,11 +53,11 @@ class TaskBoard extends Component {
         return xhtml;
     }
 
-    loadData = () => {
-        const { taskActionCreators } = this.props;
-        const { fetchListTask } = taskActionCreators;
-        fetchListTask();
-    }
+    // loadData = () => {
+    //     const { taskActionCreators } = this.props;
+    //     const { fetchListTask } = taskActionCreators;
+    //     fetchListTask();
+    // }
 
     handleFilter = e => {
         const { value } = e.target;
@@ -129,14 +129,14 @@ class TaskBoard extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.taskBoard}>
-                <Button
+                {/* <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
                     onClick={this.loadData}
                 >
                     Load Data
-                </Button>
+                </Button> */}
                 <Button
                     variant="contained"
                     color="primary"
